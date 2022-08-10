@@ -3,9 +3,9 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'transformation-demo-project-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  templateUrl: './description.component.html'
 })
-export class AppComponent {
+export class DescriptionComponent {
   name = new FormControl('');
+  description = new FormControl('');
 }
