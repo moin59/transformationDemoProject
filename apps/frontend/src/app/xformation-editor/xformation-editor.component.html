@@ -1,0 +1,10 @@
+<form [formGroup]="profileForm">
+  <label for="name">Name: </label><br>
+  <input id="name" type="text" formControlName="name" />
+  <br><br>
+  <label for="description">Description: </label><br>
+  <input id="description" type="text" formControlName="description" />
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()"></form>
+
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
