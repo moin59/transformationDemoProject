@@ -3,8 +3,11 @@
   <input id="name" type="text" formControlName="name" />
   <br><br>
   <label for="description">Description: </label><br>
-  <input id="description" type="text" formControlName="description" />
-  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()"></form>
+  <input id="description" type="textarea" formControlName="description" size="40" />
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()"></form><br>
 
-  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+
 </form>
+<div class='container'> <button type="submit" [disabled]="!profileForm.valid">Save</button>
+  <button type="submit" [disabled]="!profileForm.valid">Delete</button>
+</div>
