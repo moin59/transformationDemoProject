@@ -9,10 +9,9 @@
 </form>
 <form [formGroup]="transform" (ngSubmit)="onCreate()">
 <button type="submit" [disabled]="!transform.valid" >Create</button>
-<button type="button" (click)="updateTransform()">Clear</button>
 </form>
 
 <br/>
 <div *ngFor="let item of transformsList">
-  <b>Name:</b> {{item.name}} and <b>Description:</b> {{item.description}}
+  <b>Name:</b> {{item.name}} and <b>Description:</b> {{item.description}}<button type="button" (click)="deleteTransform()">Delete</button>
 </div>

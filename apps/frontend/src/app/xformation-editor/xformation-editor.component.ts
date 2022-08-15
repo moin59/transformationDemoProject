@@ -37,14 +37,18 @@ export class XformationEditorComponent {
       name: this.transform.controls['name']?.value,
       description: this.transform.controls['description']?.value
     });
-    this.updateTransform()
+    this.clearTransform()
   }
 
-  updateTransform() {
+  clearTransform() {
     this.transform.patchValue({
       name: '',
       description: ''
     });
+  }
+
+  deleteTransform() {
+    delete this.transformsList[-1];
   }
 
 
