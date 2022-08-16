@@ -26,7 +26,7 @@ export class XformationEditorComponent {
 
   onCreate() {
     // TODO: Use EventEmitter with form value
-    console.warn(this.transform.value);
+    
     this.transform.patchValue({
       name: this.transform.controls['name']?.value,
       description: this.transform.controls['description']?.value
@@ -48,7 +48,7 @@ export class XformationEditorComponent {
   }
 
   deleteTransform() {
-    delete this.transformsList[-1];
+    console.clear();
   }
 
 

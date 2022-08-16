@@ -4,7 +4,7 @@
   <input id="name" type="text" formControlName="name" required="true" size="40"><br><br>
 
   <label for="description">Description: </label><br>
-  <textarea id="description" type="text" formControlName="description" rows="6" cols="33"></textarea>
+  <textarea id="description" type="text" formControlName="description" rows="6" cols="34"></textarea>
 
 </form>
 <form [formGroup]="transform" (ngSubmit)="onCreate()">
@@ -13,5 +13,5 @@
 
 <br/>
 <div *ngFor="let item of transformsList">
-  <b>Name:</b> {{item.name}} and <b>Description:</b> {{item.description}}<button type="button" (click)="deleteTransform()">Delete</button>
+  <b>Name:</b> {{item.name}}, <b>Description:</b> {{item.description}} <button type="submit" (ngSubmit)="deleteTransform()">Delete</button>
 </div>
