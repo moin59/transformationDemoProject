@@ -13,6 +13,7 @@ interface Transformation {
   templateUrl: './transformations-creator.component.html',
   styleUrls: ['./transformations-creator.component.scss'],
 })
+
 export class TransformationsCreatorComponent {
 
   transformations: Transformation[] = [] ;
