@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <form [formGroup]="transformationForm" (ngSubmit)="createTransformation()">
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="name" class="form-label">Name:</label><br>
+                        <input id="name" class="form-control" type="text" formControlName="name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="description" class="form-label">Description: </label><br>
+                        <textarea id="description" class="form-control" type="text" formControlName="description"
+                            rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary" type="submit"> Create</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-6">
+            <pre>{{transformationForm.value | json}}</pre>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="col mb-3" *ngFor="let transformation of transformations">
+        <div class="col-11">
+            <b>Name</b> {{transformation.name}}, <b>Description</b> {{transformation.description}}
+        </div>
+        <div class="col-1">
+            <button class="btn btn-danger" (click)="deleteTransformation(transformation.id)">Delete</button>
+        </div>
+    </div>
+</div>
