@@ -1,13 +1,17 @@
-<form [formGroup]="profileForm">
-  <label for="name">Name: </label><br>
-  <input id="name" type="text" formControlName="name" />
-  <br><br>
-  <label for="description">Description: </label><br>
-  <input id="description" type="textarea" formControlName="description" size="40" />
-  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()"></form><br>
+<form [formGroup]="transform">
 
+  <label for="name">Name: </label><br>
+  <input id="name" type="text" formControlName="name" required="true" size="40"><br><br>
+
+  <label for="description">Description: </label><br>
+  <textarea id="description" type="text" formControlName="description" rows="6" cols="34"></textarea>
 
 </form>
-<div class='container'> <button type="submit" [disabled]="!profileForm.valid">Save</button>
-  <button type="submit" [disabled]="!profileForm.valid">Delete</button>
+<form [formGroup]="transform" (ngSubmit)="onCreate()">
+<button type="submit" [disabled]="!transform.valid" >Create</button>
+</form>
+
+<br/>
+<div *ngFor="let item of transformsList">
+  <b>Name:</b> {{item.name}}, <b>Description:</b> {{item.description}} <button type="submit" (ngSubmit)="deleteTransform()">Delete</button>
 </div>
