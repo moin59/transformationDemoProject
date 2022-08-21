@@ -20,12 +20,10 @@ export class TransformationsCreatorComponent {
 
   transformationForm = new FormGroup({
     name: new FormControl('',[Validators.required, Validators.maxLength(40)]),
-    description: new FormControl(''),
-    
+    description: new FormControl(''), 
   });
 
   createTransformation() {
-    // TODO: Use EventEmitter with form value
 
     const addTransformation = {id: this.transformations.length + 1, ... this.transformationForm.getRawValue()}
     this.transformations.push(addTransformation)

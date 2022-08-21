@@ -1,30 +1,23 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <form [formGroup]="transformationForm" (ngSubmit)="createTransformation()">
+      <form [formGroup]="transformationForm" (ngSubmit)="createTransformation()" novalidate >
         <div class="col mb-3">
           <label for="name" class="form-label">Name:</label><br />
-          <input
-            id="name"
-            class="form-control"
-            type="text"
-            formControlName="name"
-          />
+          <input id="name" class="form-control" type="text" formControlName="name" />
+          <div *ngIf=" transformationForm.controls['name'].invalid && (transformationForm.controls['name'].dirty || transformationForm.controls['name'].touched)" class="alert alert-danger">
+            <div *ngIf="transformationForm.controls['name'].errors">
+              Name is required!
+            </div>
+          </div>
         </div>
         <div class="col mb-3">
           <label for="description" class="form-label">Description:</label>
-          <textarea
-            id="description"
-            class="form-control"
-            type="text"
-            formControlName="description"
-            rows="6"
-          ></textarea>
+          <textarea id="description" class="form-control" type="text" formControlName="description" rows="6"></textarea>
         </div>
         <div class="row">
           <div class="col">
-            <button class="btn btn-primary" type="submit">Create</button
-            ><br /><br />
+            <button class="btn btn-primary" type="submit" [disabled]="!transformationForm.valid">Create</button><br/><br/>
           </div>
         </div>
       </form>
@@ -40,11 +33,11 @@
 <div class="container">
   <div class="row" *ngFor="let transformation of transformations">
     <div class="col">
-        <b>Name:</b> {{ transformation.name }}<br/>
-        <b>Description:</b>{{ transformation.description }}<br/><br/>
+      <b>Name:</b> {{ transformation.name }}<br />
+      <b>Description:</b>{{ transformation.description }}<br /><br />
     </div>
     <div class="col">
-      <button class="btn btn-danger" (click)="deleteTransformation(transformation.id)">Delete</button>
+      <button class="btn btn-danger" (click)="deleteTransformation(transformation.id)"> Delete </button>
     </div>
   </div>
 </div>
