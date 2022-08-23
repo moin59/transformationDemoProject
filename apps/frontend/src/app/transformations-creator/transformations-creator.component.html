@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <form [formGroup]="transformationForm" (ngSubmit)="createTransformation()" novalidate >
+      <form [formGroup]="transformationForm" (ngSubmit)="createTransformation()">
         <div class="col mb-3">
           <label for="name" class="form-label">Name:</label><br />
           <input id="name" class="form-control" type="text" formControlName="name" />
-          <div *ngIf=" transformationForm.controls['name'].invalid && (transformationForm.controls['name'].dirty || transformationForm.controls['name'].touched)" class="alert alert-danger">
+          <div *ngIf="transformationForm.controls['name'].invalid && transformationForm.controls['name'].touched" class="alert alert-danger">
             <div *ngIf="transformationForm.controls['name'].errors">
-              Name is required!
+              Name is required(Max. 40 characters)!
             </div>
           </div>
         </div>
@@ -26,6 +26,8 @@
       <div class="row">
         Dynamic Output:
         <pre>{{ transformationForm.value | json }}</pre>
+        Number of input characters: 
+        {{transformationForm.controls['name'].value?.length}}
       </div>
     </div>
   </div>

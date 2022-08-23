@@ -9,7 +9,7 @@ interface Transformation {
 }
 
 @Component({
-  selector: 'transformation-demo-project-transformations-creator',
+  selector: 'app-transformations-creator',
   templateUrl: './transformations-creator.component.html',
   styleUrls: ['./transformations-creator.component.scss'],
 })
