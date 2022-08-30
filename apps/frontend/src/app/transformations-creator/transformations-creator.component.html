@@ -5,11 +5,11 @@
         <div class="col mb-3">
           <label for="name" class="form-label">Name:</label><br/>
           <input id="name" class="form-control" type="text" formControlName="name"/>
-          <div *ngIf="transformationForm.controls['name'].invalid && transformationForm.controls['name'].touched" class="alert alert-danger">
+          <div *ngIf="nameControl.invalid && nameControl.touched" class="alert alert-danger">
             Name is required.
-            <div *ngIf="transformationForm.controls['name'].errors">
-              Max. characters: {{transformationForm.controls['name'].errors["maxlength"]["requiredLength"]}} &
-              Characters entered: {{transformationForm.controls['name'].errors["maxlength"]["actualLength"]}}
+            <div *ngIf="nameControl.errors">
+              Max. characters: {{nameControl.errors["maxlength"]["requiredLength"]}} &
+              Characters entered: {{nameControl.errors["maxlength"]["actualLength"]}}
             </div>
           </div>
         </div>
