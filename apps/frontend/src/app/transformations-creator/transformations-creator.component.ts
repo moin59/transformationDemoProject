@@ -16,7 +16,11 @@ interface Transformation {
 
 export class TransformationsCreatorComponent {
 
-  transformations: Transformation[] = [] ;
+  transformations: Transformation[] = [];
+
+  get nameControl() {
+    return this.transformationForm.controls['name']
+  }
 
   transformationForm = new FormGroup({
     name: new FormControl('',[Validators.required, Validators.maxLength(40)]),

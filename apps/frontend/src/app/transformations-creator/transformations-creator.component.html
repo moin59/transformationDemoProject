@@ -3,11 +3,13 @@
     <div class="col">
       <form [formGroup]="transformationForm" (ngSubmit)="createTransformation()">
         <div class="col mb-3">
-          <label for="name" class="form-label">Name:</label><br />
-          <input id="name" class="form-control" type="text" formControlName="name" />
+          <label for="name" class="form-label">Name:</label><br/>
+          <input id="name" class="form-control" type="text" formControlName="name"/>
           <div *ngIf="transformationForm.controls['name'].invalid && transformationForm.controls['name'].touched" class="alert alert-danger">
+            Name is required.
             <div *ngIf="transformationForm.controls['name'].errors">
-              Name is required(Max. 40 characters)!
+              Max. characters: {{transformationForm.controls['name'].errors["maxlength"]["requiredLength"]}} &
+              Characters entered: {{transformationForm.controls['name'].errors["maxlength"]["actualLength"]}}
             </div>
           </div>
         </div>
@@ -17,7 +19,7 @@
         </div>
         <div class="row">
           <div class="col">
-            <button class="btn btn-primary" type="submit" [disabled]="!transformationForm.valid">Create</button><br/><br/>
+            <button class="btn btn-primary" type="submit" [disabled]="!transformationForm.valid">Create</button>
           </div>
         </div>
       </form>
@@ -36,7 +38,7 @@
   <div class="row" *ngFor="let transformation of transformations">
     <div class="col">
       <b>Name:</b> {{ transformation.name }}<br />
-      <b>Description:</b>{{ transformation.description }}<br /><br />
+      <b>Description:</b>{{ transformation.description }}<br/><br/>
     </div>
     <div class="col">
       <button class="btn btn-danger" (click)="deleteTransformation(transformation.id)"> Delete </button>
