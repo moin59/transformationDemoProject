@@ -21,7 +21,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
